@@ -5,7 +5,7 @@ div {
   box-sizing: border-box;
 }
 .wrapper {
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
 
 }
@@ -13,8 +13,9 @@ div {
 
 }
 .product {
+  cursor: pointer;
   border: 1px solid  black;
-  height: 290px;
+  height: 390px;
   border-radius: 5px;
   margin: 5px;
   padding: 10px;
@@ -38,5 +39,5 @@ div {
 
   float: left;
   padding: 5px;
-  
+
 }
