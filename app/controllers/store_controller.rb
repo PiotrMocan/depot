@@ -1,10 +1,14 @@
 class StoreController < ApplicationController
+  include CurrentCart
   before_action :prepare_products
+  before_action :set_cart
+
   def index
-    prepare_products
+    @products = Product.all
   end
 
   def prepare_products
     @products = Product.all
   end
+
 end

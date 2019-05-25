@@ -10,6 +10,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
   # GET /carts/1
   # GET /carts/1.json
   def show
+    
   end
 
   # GET /carts/new
@@ -28,6 +29,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
     respond_to do |format|
       if @cart.save
+
         #format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
         #format.json { render :show, status: :created, location: @cart }
       else
@@ -62,7 +64,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
     end
   end
 
-  
+
   private
 
     def invalid_cart
