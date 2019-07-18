@@ -2,3 +2,10 @@
 
 var cart = document.getElementById('cart');
 cart.innerHTML = "<%= escape_javascript render(@cart) %>"
+
+var current_item = document.getElementById('current_item')
+current_item.style.backgroundColor = "#28b853";
+
+setTimeout(function () {
+    current_item.style.backgroundColor = "white";
+}, 700);

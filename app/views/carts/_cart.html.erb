@@ -1,4 +1,4 @@
-
+<% unless cart.line_items.empty? %>
 <h2>Ваша корзина</h2>
 
 <table>
@@ -10,3 +10,4 @@
   </tr>
 </table>
 <%= button_to 'Очистить корзину', cart, method: :delete, data: {confirm: 'Корзина будет удалена, вы уверены ?'} %>
+<% end %>
