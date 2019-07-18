@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="cart">
+<div id="cart">
   <%= render @cart %>
 </div>
 <div class="wrapper">
@@ -25,7 +25,7 @@
 
   <div class="buttons">
   <%= link_to 'Show', product %>
-  <%= button_to 'Добавить в корзину', line_items_path(product_id: product)%>
+  <%= button_to 'Добавить в корзину', line_items_path(product_id: product), remote: true%>
   </div>
   </div>
   <% end %>
