@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   include CurrentCart
+  require "./app/mailers/order_mailer.rb"
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
@@ -37,6 +38,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        OrderMailer.received(@order).deliver
         format.html { redirect_to store_url, notice: 'Заказ успешно размещён' }
         format.json { render :show, status: :created, location: @order }
       else
