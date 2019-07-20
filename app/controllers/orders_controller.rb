@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_action :authorize, only: [:new, :create]
   include CurrentCart
   require "./app/mailers/order_mailer.rb"
   before_action :set_cart, only: [:new, :create]

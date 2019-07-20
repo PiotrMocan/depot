@@ -1,0 +1,23 @@
+<h1>Admin Zone</h1><br>
+
+<%= Time.now %><br>
+
+У нас имеется <%= pluralize(@total_orders, "заказ") %>
+<table>
+    <tr>
+      <th>Номер заказ</th>
+      <th>Имя покупателя</th>
+      <th>Сумма заказа</th>
+      <th>Добавлен</th>
+    </tr>
+  <% Order.all.reverse.each do |order| %>
+  <tr>
+  <td><%= order.id %></td>
+  <td><%= order.name %></td>
+  <td><%= order.total_price_in_order %></td>
+  <td><%= order.created_at %></td>
+  </tr>
+  <% end %>
+
+
+</table>

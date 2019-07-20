@@ -10,7 +10,19 @@
   </head>
 
   <body class='<%= controller.controller_name %>'>
-    
+    <% if session[:user_id] == nil %>
+    <%= button_to 'Войти', login_path, method: :get %>
+    <% else %>
+    <%= button_to 'Выйти', logout_path, method: :delete %>
+    <% end %>
+    <% if session[:user_id] %>
+      <ul>
+        <li><%= link_to "Админка", admin_path %></li>
+        <li><%= link_to "Заказы", orders_path %></li>
+        <li><%= link_to "Товары", products_path %></li>
+        <li><%= link_to "Пользователи", users_path  %></li>
+      </ul>
+    <% end %>
     <%= yield %>
 
   </body>

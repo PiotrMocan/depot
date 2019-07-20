@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+
+
   PAYMENT_TYPES = ["Кредитка", "Наличными", "Переводом"]
   has_many :line_items, dependent: :destroy
   validates :name, :address, :email, presence: true
@@ -9,6 +11,13 @@ class Order < ApplicationRecord
       item.cart_id = nil
       line_items << item
     end
+  end
+  def total_price_in_order
+    x = 0
+    self.line_items.each do |line|
+      x += line.product.price * line.quantity
+    end
+    x
   end
 
 
